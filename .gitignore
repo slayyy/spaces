@@ -80,6 +80,8 @@ target/
 
 *.txt
 
+venv/
+
 # celery beat schedule file
 celerybeat-schedule
 

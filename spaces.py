@@ -1,13 +1,13 @@
 import argparse
 import os
 
-parser = argparse.ArgumentParser(description="squaring number")
+parser = argparse.ArgumentParser(description="Rename file")
 group = parser.add_mutually_exclusive_group()
 
 parser.add_argument("file", help="taking filename", type=str, nargs='+')
-parser.add_argument("filename", help="taking filename", type=str)
 
-group.add_argument("-space", "--space", action="store_true")
+group.add_argument("-s", "--space", action="store_true")
+group.add_argument("-r", "--recursive", action="store_true")
 
 args = parser.parse_args()
 
@@ -17,6 +17,8 @@ filename = ' '.join(args.file)
 
 if args.space:
     new_filename = args.file[0].replace('_', ' ')
-
-# os.rename(filename, new_filename)
-print(vars(args))
+elif args.recursive:
+    for file in args.file:
+        os.rename(file, file.replace(' ', '_'))
+else:
+    os.rename(filename, new_filename)
