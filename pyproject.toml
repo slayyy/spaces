@@ -4,6 +4,7 @@ build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
 module = "spaces"
+dist-name = "spaces_by_slay"
 author = "Axel"
 author-email = "decobert.a78@gmail.com"
 classifiers = ["License :: OSI Approved :: MIT License"]
