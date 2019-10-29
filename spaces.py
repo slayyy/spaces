@@ -7,7 +7,7 @@ import os
 
 __version__ = '0.0.1'
 
-def main():
+def parse_args():
     parser = argparse.ArgumentParser(description="Rename file")
     group = parser.add_mutually_exclusive_group()
 
@@ -16,7 +16,10 @@ def main():
     group.add_argument("-s", "--space", action="store_true")
     group.add_argument("-r", "--recursive", action="store_true")
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
 
     new_filename = '_'.join(args.file)
 
